@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace Timed_Shutdown
 {
-    /// <summary>
-    /// Interakční logika pro MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -28,8 +25,10 @@ namespace Timed_Shutdown
         }
 
         private void WindowMouseDown(object sender, MouseButtonEventArgs e)
-        { 
-            DragMove(); 
+        {
+            FocusManager.SetFocusedElement(FocusManager.GetFocusScope(test), null);
+            Keyboard.ClearFocus();
+            DragMove();
         }
 
         private void tbPreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -160,6 +159,12 @@ namespace Timed_Shutdown
         {
             if (tbMinutes.Text == "")
                 tbMinutes.Text = "0";
+
+            if (int.Parse(tbMinutes.Text) > 59)
+            {
+                tbHours.Text = (int.Parse(tbHours.Text) + 1).ToString();
+                tbMinutes.Text = (int.Parse(tbMinutes.Text) - 60).ToString();
+            }
         }
 
         private void tbSecondsFocus(object sender, RoutedEventArgs e)
@@ -172,6 +177,12 @@ namespace Timed_Shutdown
         {
             if (tbSeconds.Text == "")
                 tbSeconds.Text = "0";
+
+            if (int.Parse(tbSeconds.Text) > 59)
+            {
+                tbMinutes.Text = (int.Parse(tbMinutes.Text) + 1).ToString();
+                tbSeconds.Text = (int.Parse(tbSeconds.Text) - 60).ToString();
+            }
         }
     }
 }

@@ -8,7 +8,10 @@
         Title="MainWindow" Height="200" Width="340"
         ResizeMode="NoResize"
         WindowStyle="None"
-        MouseDown="WindowMouseDown" Icon="/icons8-shutdown-96.png">
+        MouseDown="WindowMouseDown" 
+        Icon="/icons8-shutdown-96.png"
+        AllowsTransparency="True"
+        Background="Transparent">
 
     <Window.Resources>
         <Style TargetType="Button">
@@ -44,42 +47,42 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.RowSpan="2" BorderBrush="#FFABADB3" BorderThickness="1"/>
+        <Border Grid.RowSpan="2" BorderBrush="#FFABADB3" BorderThickness="0" CornerRadius="8" Background="White"/>
 
-        <TextBlock Text="Timed Shutdown" Margin="4,2" Foreground="#FFABADB3"/>
+        <TextBlock Name="test"  Text="Timed Shutdown" Margin="6,4" Foreground="#FFABADB3"/>
 
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="2,15,2,0">
             <StackPanel>
-                <TextBlock Text="Hours" Margin="10,2" FontSize="16"/>
+                <TextBlock Text="Hours" Margin="10,2" FontSize="18"/>
                 <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
-                    <TextBox Text="0" Name="tbHours" Width="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" MaxLength="2" PreviewTextInput="tbPreviewTextInput" DataObject.Pasting="tbPasting" GotFocus="tbHoursFocus" LostFocus="tbHoursLostFocus"/>
+                    <TextBox BorderThickness="0" Text="0" Name="tbHours" Width="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" MaxLength="2" PreviewTextInput="tbPreviewTextInput" DataObject.Pasting="tbPasting" GotFocus="tbHoursFocus" LostFocus="tbHoursLostFocus"/>
                     <StackPanel>
-                        <Button Content="˄" Click="HoursUp"/>
-                        <Button Content="˅" Click="HoursDown"/>
+                        <Button Content="˄" Click="HoursUp" FontWeight="Bold"/>
+                        <Button Content="˅" Click="HoursDown" FontWeight="Bold"/>
                     </StackPanel>
                     <TextBlock Text=":" Margin="10,0,0,0" VerticalAlignment="Center" FontFamily="Global User Interface" FontSize="22"/>
                 </StackPanel>
             </StackPanel>
             
             <StackPanel>
-                <TextBlock Text="Minutes" Margin="10,2" FontSize="16"/>
+                <TextBlock Text="Minutes" Margin="10,2" FontSize="18"/>
                 <StackPanel Orientation="Horizontal"  Margin="10,0,0,0">
-                    <TextBox Text="0" Name="tbMinutes" Width="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" MaxLength="2" PreviewTextInput="tbPreviewTextInput" DataObject.Pasting="tbPasting" GotFocus="tbMinutesFocus" LostFocus="tbMinutesLostFocus"/>
+                    <TextBox BorderThickness="0" Text="0" Name="tbMinutes" Width="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" MaxLength="2" PreviewTextInput="tbPreviewTextInput" DataObject.Pasting="tbPasting" GotFocus="tbMinutesFocus" LostFocus="tbMinutesLostFocus"/>
                     <StackPanel>
-                        <Button Content="˄" Click="MinutesUp"/>
-                        <Button Content="˅" Click="MinutesDown"/>
+                        <Button Content="˄" Click="MinutesUp" FontWeight="Bold"/>
+                        <Button Content="˅" Click="MinutesDown" FontWeight="Bold"/>
                     </StackPanel>
                     <TextBlock Text=":" Margin="10,0,0,0" VerticalAlignment="Center"  FontFamily="Global User Interface" FontSize="22"/>
                 </StackPanel>
             </StackPanel>
             
             <StackPanel>
-                <TextBlock Text="Seconds" Margin="10,2" FontSize="16"/>
+                <TextBlock Text="Seconds" Margin="10,2" FontSize="18"/>
                 <StackPanel Orientation="Horizontal"  Margin="10,0,0,0">
-                    <TextBox Text="0" Name="tbSeconds" Width="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" MaxLength="2" PreviewTextInput="tbPreviewTextInput" DataObject.Pasting="tbPasting" GotFocus="tbSecondsFocus" LostFocus="tbSecondsLostFocus"/>
+                    <TextBox BorderThickness="0" Text="0" Name="tbSeconds" Width="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" MaxLength="2" PreviewTextInput="tbPreviewTextInput" DataObject.Pasting="tbPasting" GotFocus="tbSecondsFocus" LostFocus="tbSecondsLostFocus"/>
                     <StackPanel>
-                        <Button Content="˄" Click="SecondsUp"/>
-                        <Button Content="˅" Click="SecondsDown"/>
+                        <Button Content="˄" Click="SecondsUp" FontWeight="Bold"/>
+                        <Button Content="˅" Click="SecondsDown" FontWeight="Bold"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
@@ -125,10 +128,10 @@
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
-                    <Setter Property="Background" Value="#47D8F8"/>
+                    <Setter Property="Background" Value="#FF54CBE6"/>
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#31B8E6"/>
+                            <Setter Property="Background" Value="#FF00A4DA"/>
                             <Setter Property="Cursor" Value="Hand"/>
                         </Trigger>
                     </Style.Triggers>
